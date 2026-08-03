@@ -1,0 +1,33 @@
+[project]
+name = "beaconize"
+version = "1.0.0"
+description = "Turn a VCF file into a running GA4GH Beacon v2 REST API, with no database and no ingestion step"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Alberto Ballesteros-Rodríguez", email = "ballesterosbr@gmail.com" },
+    { name = "Miguel-Angel Sicilia" },
+]
+keywords = ["beacon", "ga4gh", "beacon-v2", "vcf", "genomics", "variant", "fastapi"]
+requires-python = ">=3.11"
+dependencies = [
+    "cyvcf2>=0.31.4",
+    "fastapi[standard]>=0.122.0",
+    "pydantic>=2.12.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/ballesterosbr/beaconize"
+Repository = "https://github.com/ballesterosbr/beaconize"
+Issues = "https://github.com/ballesterosbr/beaconize/issues"
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+# Needed to regenerate Pydantic models with generate.sh.
+dev = [
+    "datamodel-code-generator[http]>=0.35.0",
+]
